@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PWA App</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Web App Manifest のリンク -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- PWAのテーマカラー設定 -->
+    <meta name="theme-color" content="#317EFB">
+
+    <!-- アイコン（ホーム画面用） -->
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <h1>ようこそ、PWAへ！</h1>
+    <p>このアプリはオフラインでも動作します。</p>
+
+    <script src="script.js"></script>
+
+    <!-- Service Workerを登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log('Service Worker が登録されました。'))
+            .catch(err => console.log('Service Worker の登録に失敗しました:', err));
+        }
+    </script>
+</body>
+</html>
